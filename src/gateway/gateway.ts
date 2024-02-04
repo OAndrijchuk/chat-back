@@ -22,7 +22,6 @@ export class MyGateway implements OnModuleInit {
   onModuleInit() {
     this.server.on('connection', (socket) => {
       socket.on('chat-message', (data) => {
-        console.log(data);
         const message = JSON.parse(data);
         delete message.id;
         this.messagesRepository.save(message);
