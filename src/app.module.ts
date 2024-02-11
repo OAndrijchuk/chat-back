@@ -27,6 +27,7 @@ import { LoggerMiddleware } from './utils/logger.middleware';
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         migrations: [__dirname + '/migrations/*{.ts,.js'],
         synchronize: true,
+        ssl: true,
         autoLoadEntities: true,
         logging: true,
         logger: 'file',

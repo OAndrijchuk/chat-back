@@ -6,12 +6,15 @@ const configService = new ConfigService();
 
 export default new DataSource({
   type: 'postgres',
-  host: configService.get('POSTGRES_HOST'),
+  host: configService.get('TYPEORM_HOST'),
   port: configService.get('TYPEORM_PORT'),
   username: configService.get('TYPEORM_USERNAME'),
   password: configService.get('TYPEORM_PASSWORD'),
   database: configService.get('TYPEORM_DATABASE'),
-  entities: [__dirname + '/dist/**/*entity{.ts,.js}'],
-  migrations: [__dirname + '/dist/migrations/*{.ts,.js}'],
-  synchronize: false,
+  entities: [__dirname + '/**/*.entity{.ts,.js}'],
+  migrations: [__dirname + '/migrations/*{.ts,.js'],
+  synchronize: true,
+  ssl: true,
+  logging: true,
+  logger: 'file',
 });
